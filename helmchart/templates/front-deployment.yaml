@@ -19,6 +19,17 @@ spec:
     spec:
       containers:
       - image: mkeignaert/challenge-front:1.0
+        envFrom:
+          - configMapRef: 
+              name: front-cm
         name: challenge-front
-        resources: {}
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 50m
+            memory: 32Mi
+          limits:
+            cpu: 200m
+            memory: 64Mi
 status: {}

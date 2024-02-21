@@ -12,7 +12,7 @@ spec:
     protocol: TCP
     targetPort: 5000
   selector:
-    app: back
+    app: backend
   type: ClusterIP
 status:
   loadBalancer: {}
