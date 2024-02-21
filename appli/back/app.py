@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+from flask_cors import cross_origin
 import random
 
 app = Flask(__name__)
+
 
 # Chemin vers le fichier texte contenant les histoires
 CHEMIN_FICHIER = "/nuno.txt"
@@ -14,6 +16,7 @@ def lire_ligne_aleatoire():
 
 # Endpoint pour raconter une histoire
 @app.route('/racontemoiunehistoire', methods=['GET'])
+@cross_origin()
 def raconte_moi_une_histoire():
     try:
         ligne = lire_ligne_aleatoire()
