@@ -1,14 +1,18 @@
-# Utiliser l'image nginx
-FROM nginx:latest
+# Utiliser une image de base Python
+FROM python:3.9
 
-# Supprimer le fichier par défaut index.html de nginx
-RUN rm -rf /usr/share/nginx/html/*
+# Définir le répertoire de travail dans le container
+WORKDIR /app
 
-# Copier votre fichier index.html dans le répertoire de base de nginx
-COPY index.html /usr/share/nginx/html
+# Installer les dépendances
+RUN pip install flask requests
 
-# Exposer le port sur lequel nginx écoute
+# Copier les fichiers d'application dans le répertoire de travail
+COPY app.py /app
+COPY templates /app/templates
+
+# Exposer le port sur lequel l'application Flask s'exécute
 EXPOSE 80
 
-# Commande pour démarrer nginx lors du démarrage du container
-CMD ["nginx", "-g", "daemon off;"]
+# Commande pour exécuter l'application lorsque le container démarre
+CMD ["python", "app.py"]

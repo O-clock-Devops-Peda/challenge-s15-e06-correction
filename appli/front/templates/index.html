@@ -11,12 +11,9 @@
     <p id="histoire"></p>
 
     <script>
-        // URL de l'API
-        var apiUrl = "http://localhost:5000/racontemoiunehistoire";
-
-        // Fonction pour récupérer une histoire depuis l'API
+        // Fonction pour récupérer une histoire depuis l'API du backend
         function recupererHistoire() {
-            fetch(apiUrl)
+            fetch('/goapi')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erreur lors de la récupération de l\'histoire');
