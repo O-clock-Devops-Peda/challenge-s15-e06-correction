@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 
 # Chemin vers le fichier texte contenant les histoires
-CHEMIN_FICHIER = "chemin/vers/votre/fichier.txt"
+CHEMIN_FICHIER = "/nuno.txt"
 
 # Fonction pour lire une ligne aléatoire dans le fichier texte
 def lire_ligne_aleatoire():

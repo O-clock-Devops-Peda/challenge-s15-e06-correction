@@ -3,12 +3,13 @@ FROM python:3.9
 
 # Définir le répertoire de travail dans le container
 WORKDIR /app
-
+COPY nuno.txt /
 # Copier le fichier d'application dans le répertoire de travail
 COPY app.py /app
+COPY requirements.txt /
 
 # Installer les dépendances
-RUN pip install flask
+RUN pip install -r /requirements.txt
 
 # Exposer le port sur lequel l'application Flask s'exécute
 EXPOSE 5000
